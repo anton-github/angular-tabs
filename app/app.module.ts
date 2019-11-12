@@ -1,15 +1,13 @@
-import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-import {TabsModule} from '../tabs/tabs.module';
+import { TabsModule } from '../tabs/tabs.module';
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
 import { TestComponent } from './test.component';
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule ],
+  imports:      [ BrowserModule, TabsModule ],
   declarations: [ AppComponent, HelloComponent, TestComponent ],
-  bootstrap:    [ AppComponent ],
-  schemas: [ NO_ERRORS_SCHEMA ]
+  bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

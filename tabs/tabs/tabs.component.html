@@ -1,3 +1,9 @@
-<p>
-tabs works!
-</p>
+<div class="tabs__titles">
+    <div class="tabs__title" (click)="activateTab(tab)" [ngClass]="{'tabs__title--active': tab === activeTab}" *ngFor='let tab of tabs'>
+        <ng-container *ngTemplateOutlet='tab.title.template'></ng-container>
+    </div>
+    <div *ngIf="activeTab">
+        <ng-container *ngTemplateOutlet='activeTab.content.template'></ng-container>
+    </div>
+</div>
+

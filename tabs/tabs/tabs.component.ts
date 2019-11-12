@@ -1,15 +1,30 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, ContentChild, ContentChildren, OnInit, QueryList, ViewChildren} from '@angular/core';
+import {TabComponent} from "../tab/tab.component";
+import {TabTitleComponent} from "../tab-title/tab-title.component";
+import {TabContentComponent} from "../tab-content/tab-content.component";
 
 @Component({
-  selector: 'app-tabs',
-  templateUrl: './tabs.component.html',
-  styleUrls: ['./tabs.component.css']
+    selector: 'tabs',
+    templateUrl: './tabs.component.html',
+    styleUrls: ['./tabs.component.scss']
 })
-export class TabsComponent implements OnInit {
+export class TabsComponent implements AfterViewInit {
 
-  constructor() { }
+    @ContentChildren(TabComponent) tabs: QueryList<TabComponent>;
+    activeTab: TabComponent = null;
 
-  ngOnInit() {
-  }
+    constructor() {
+    }
 
+    ngAfterViewInit(): void {
+        setTimeout(() => {
+            if (this.tabs.first) {
+                this.activeTab = this.tabs.first
+            }
+        })
+    }
+
+    activateTab(tab) {
+        this.activeTab = tab;
+    }
 }
