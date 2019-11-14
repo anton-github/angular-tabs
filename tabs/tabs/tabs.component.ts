@@ -30,7 +30,7 @@ export class TabsComponent implements AfterContentInit {
 
     private onTabsChanged() {
         if (this.activeTab) {
-            if (this.tabs.find((tab => tab === this.activeTab)) === undefined) {
+            if (!this.tabs.find((tab => tab === this.activeTab))) {
                 this.setTabOnRemoveActive();
             }
         } else {
