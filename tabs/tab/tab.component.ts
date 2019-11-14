@@ -4,8 +4,7 @@ import {TabTitleComponent} from "../tab-title/tab-title.component";
 
 @Component({
   selector: 'tab',
-  template: '<ng-content></ng-content>',
-  styleUrls: ['./tab.component.scss']
+  template: ''
 })
 export class TabComponent implements OnInit {
   @ContentChild(TabContentComponent, {static: false}) content: TabContentComponent;
